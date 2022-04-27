@@ -4,7 +4,7 @@
 #
 Name     : pypi-paho_mqtt
 Version  : 1.6.1
-Release  : 30
+Release  : 31
 URL      : https://files.pythonhosted.org/packages/f8/dd/4b75dcba025f8647bc9862ac17299e0d7d12d3beadbf026d8c8d74215c12/paho-mqtt-1.6.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f8/dd/4b75dcba025f8647bc9862ac17299e0d7d12d3beadbf026d8c8d74215c12/paho-mqtt-1.6.1.tar.gz
 Summary  : MQTT version 5.0/3.1.1 client class
@@ -14,9 +14,6 @@ Requires: pypi-paho_mqtt-license = %{version}-%{release}
 Requires: pypi-paho_mqtt-python = %{version}-%{release}
 Requires: pypi-paho_mqtt-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-Provides: paho-mqtt
-Provides: paho-mqtt-python
-Provides: paho-mqtt-python3
 
 %description
 ================================
@@ -57,7 +54,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641465390
+export SOURCE_DATE_EPOCH=1651102143
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
