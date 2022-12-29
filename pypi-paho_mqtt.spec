@@ -4,7 +4,7 @@
 #
 Name     : pypi-paho_mqtt
 Version  : 1.6.1
-Release  : 39
+Release  : 40
 URL      : https://files.pythonhosted.org/packages/f8/dd/4b75dcba025f8647bc9862ac17299e0d7d12d3beadbf026d8c8d74215c12/paho-mqtt-1.6.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f8/dd/4b75dcba025f8647bc9862ac17299e0d7d12d3beadbf026d8c8d74215c12/paho-mqtt-1.6.1.tar.gz
 Summary  : MQTT version 5.0/3.1.1 client class
@@ -14,6 +14,9 @@ Requires: pypi-paho_mqtt-license = %{version}-%{release}
 Requires: pypi-paho_mqtt-python = %{version}-%{release}
 Requires: pypi-paho_mqtt-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 ================================
@@ -57,12 +60,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656392587
+export SOURCE_DATE_EPOCH=1672296706
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -79,8 +82,8 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-paho_mqtt
-cp %{_builddir}/paho-mqtt-1.6.1/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-paho_mqtt/b0db5f1de294650dfffeb15f53ebd59f29043c02
-cp %{_builddir}/paho-mqtt-1.6.1/edl-v10 %{buildroot}/usr/share/package-licenses/pypi-paho_mqtt/a8709c8c7e056d82845a30d21f075912aa8a0129
+cp %{_builddir}/paho-mqtt-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-paho_mqtt/b0db5f1de294650dfffeb15f53ebd59f29043c02 || :
+cp %{_builddir}/paho-mqtt-%{version}/edl-v10 %{buildroot}/usr/share/package-licenses/pypi-paho_mqtt/a8709c8c7e056d82845a30d21f075912aa8a0129 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
