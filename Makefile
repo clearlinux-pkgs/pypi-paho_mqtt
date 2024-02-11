@@ -1,5 +1,5 @@
 PKG_NAME := pypi-paho_mqtt
-URL = https://files.pythonhosted.org/packages/f8/dd/4b75dcba025f8647bc9862ac17299e0d7d12d3beadbf026d8c8d74215c12/paho-mqtt-1.6.1.tar.gz
+URL = https://files.pythonhosted.org/packages/73/b7/a4df0f93bbdae237e16ba402752151eceee576cbe80c235a2475fbf81eea/paho_mqtt-2.0.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
