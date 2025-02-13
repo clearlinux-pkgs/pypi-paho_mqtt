@@ -7,7 +7,7 @@
 #
 Name     : pypi-paho_mqtt
 Version  : 2.1.0
-Release  : 47
+Release  : 48
 URL      : https://files.pythonhosted.org/packages/39/15/0a6214e76d4d32e7f663b109cf71fb22561c2be0f701d67f93950cd40542/paho_mqtt-2.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/39/15/0a6214e76d4d32e7f663b109cf71fb22561c2be0f701d67f93950cd40542/paho_mqtt-2.1.0.tar.gz
 Summary  : MQTT version 5.0/3.1.1 client class
